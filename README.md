@@ -1,20 +1,20 @@
 # What's Trending App
 
-MVC:
- -Mobile-first, responsive (flexbox)
- -3 interlinked pages
-  -home
-  -about
-  -form/search/selectors
- -2 pages that accept user input
-  -home
-  -form/search
- -Uses localStorage and/or SQL to store state
- -Deployment to Heroku
- 
- Stretch Goals:
-  -Ability to share what you see on social media
-  -Hover effect for each tile and its contents
+## MVC:
+.* Mobile-first, responsive (flexbox)
+.* 3 interlinked pages
+..* home
+..* about
+..* form/search/selectors
+.* 2 pages that accept user input
+..* home
+..* form/search
+.* Uses localStorage and/or SQL to store state
+.* Deployment to Heroku
+
+##Stretch Goals:
+..Ability to share what you see on social media
+..Hover effect for each tile and its contents
  
 TODAY 5/10/17
   -Brainstorm
