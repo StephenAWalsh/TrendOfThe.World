@@ -1,4 +1,4 @@
-'use strict';
+
 
 const express = require('express');
 const pg = require('pg');
@@ -33,6 +33,18 @@ app.post('/google-news', function(request, response) {
   )
   .then(function() {
     response.send('insert complete')
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+});
+
+app.delete('/google-news', function(request, response) {
+  client.query(
+    'DELETE FROM google_news;'
+  )
+  .then(function() {
+    response.send('Delete complete')
   })
   .catch(function(err) {
     console.error(err);

@@ -4,6 +4,16 @@ function Google() {};
 
 Google.articles = [];
 
+Google.truncateTable = function() {
+  $.ajax({
+    url: '/google-news',
+    method: 'DELETE',
+  })
+  // .then(function(data) {
+  //   console.log(data);
+  // });
+};
+
 Google.insert = function() {
 
   $.ajax({
@@ -11,7 +21,7 @@ Google.insert = function() {
     method: 'GET',
   })
         .then(function(data) {
-          console.log(data);
+          // console.log(data);
           for (var i = 0; i < 5; i++) {
             // console.log(data.articles[i])
             $.post('/google-news', {
@@ -34,4 +44,11 @@ Google.fetchAll = function() {
       Google.articles = results;
     }
   )
+};
+
+Google.updateDB = function() {
+  Google.truncateTable();
+  console.log('table truncated')
+  Google.insert();
+  console.log('table updated')
 };
