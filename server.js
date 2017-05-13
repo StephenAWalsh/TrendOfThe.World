@@ -2,6 +2,7 @@
 
 const express = require('express');
 const pg = require('pg');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -11,12 +12,14 @@ const conString = "postgres://tom:myPassword@localhost:5432/trending";
 const client = new pg.Client(conString);
 client.connect();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./'));
 
 app.post('/google-news', function(request, response) {
   client.query(
     `INSERT INTO
-      trending(author, description, publishedat, title, url, urltoimage)
+      google_news(author, description, publishedat, title, url, urltoimage)
       VALUES ($1, $2, $3, $4, $5, $6);
     `,
     [
@@ -36,6 +39,15 @@ app.post('/google-news', function(request, response) {
   });
 });
 
+app.get('/google-news', function(request, response) {
+  client.query('SELECT * FROM google_news')
+  .then(function(result) {
+    response.send(result.rows);
+  })
+  .catch(function(err) {
+    console.error(err)
+  })
+});
 
 
 
