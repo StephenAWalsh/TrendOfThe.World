@@ -1,0 +1,74 @@
+@import 'reset.css';
+
+* {
+  color: #a19d9d;
+}
+
+header, nav, section, footer {
+  padding: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  border: 4px solid #689bba;
+  background: #18191b;
+}
+
+header {
+  border: 4px solid #ab1974;
+}
+
+nav {
+  border: 4px solid #91d757;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  /*border: 4px solid #619056;*/
+  max-width: 1300px;
+  margin: 0 auto;
+  /*padding: 20px 30px;*/
+}
+
+section {
+  border: 4px solid #af5203;
+}
+
+footer {
+  border: 4px solid #3608ec;
+}
+
+div {
+  margin: 15px;
+  max-width: 300px;
+  border: 1px dashed #fff;
+  height: 300px;
+  background-color: #312f3a;
+}
+
+p {
+  color: #a19d9d;
+  padding: 5px;
+}
+
+a:hover {
+  color: #fff;
+}
+
+@media screen and (max-width: 1300px) {
+  main {
+    max-width: 1090px;
+  }
+  div {
+    max-width: 500px;
+    margin: 15px 0;
+  }
+}
