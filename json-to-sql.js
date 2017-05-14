@@ -1,5 +1,7 @@
 'use strict';
 
+console.log('hello from json-to-sql');
+
 function Google() {};
 
 Google.articles = [];

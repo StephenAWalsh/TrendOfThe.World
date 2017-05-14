@@ -1,5 +1,9 @@
 @import 'reset.css';
 
+.template {
+  display: none;
+}
+
 * {
   color: #a19d9d;
 }
@@ -61,7 +65,7 @@ footer {
   margin-top: 100px;
 }
 
-div .box {
+div #box {
   margin: 10px;
   width: 300px;
   /*border: 1px dashed #fff;*/
