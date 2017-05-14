@@ -4,7 +4,7 @@
   color: #a19d9d;
 }
 
-header, nav, section, footer {
+section, footer {
   padding: 10px;
 }
 
@@ -13,45 +13,71 @@ img {
 }
 
 body {
-  border: 4px solid #689bba;
+  /*border: 4px solid #689bba;*/
   background: #18191b;
 }
 
 header {
-  border: 4px solid #ab1974;
+  /*border: 4px solid #ab1974;*/
+  text-align: center;
 }
 
-nav {
-  border: 4px solid #91d757;
+.nav {
+  display: flex;
+  flex-direction: row;
+  /*max-width: 1300px;
+  margin: 0 auto;*/
+}
+
+.nav-class {
+  max-width: 100%;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  padding-right: 10px
+}
+
+.main-nav {
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 main {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: center;
-  align-items: center;
-  /*border: 4px solid #619056;*/
   max-width: 1300px;
   margin: 0 auto;
   /*padding: 20px 30px;*/
 }
 
 section {
-  border: 4px solid #af5203;
+  /*border: 4px solid #af5203;*/
 }
 
 footer {
-  border: 4px solid #3608ec;
+  background-color: #312f3a;
+  height: 300px;
+  margin-top: 100px;
 }
 
-div {
-  margin: 15px;
-  max-width: 300px;
-  border: 1px dashed #fff;
-  height: 300px;
+div .box {
+  margin: 10px;
+  width: 300px;
+  /*border: 1px dashed #fff;*/
+  height: 250px;
   background-color: #312f3a;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+div img {
+  height: 150px;
+    object-fit: cover;
+}
+
+.image-container {
+  height: 150px;
 }
 
 p {
@@ -63,12 +89,40 @@ a:hover {
   color: #fff;
 }
 
-@media screen and (max-width: 1300px) {
-  main {
-    max-width: 1090px;
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+p {
+  text-align: center;
+}
+
+.title-logo {
+  margin-top: 20px;
+}
+/*@media screen and (max-width: 1250px) {
+  .container {
+    max-width: 100%;
   }
-  div {
+  div .box {
     max-width: 500px;
-    margin: 15px 0;
+    height: auto;
   }
 }
+
+@media screen and (max-width: 619px) {
+  div .box {
+    margin-bottom: 30px;
+  }
+}*/
