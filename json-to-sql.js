@@ -37,13 +37,14 @@ Google.insert = function() {
         });
 };
 
-Google.fetchAll = function() {
+Google.fetchAll = function(callback) {
   $.get('/google-news')
   .then(
     function(results) {
       Google.articles = results;
     }
   )
+  .then(callback);
 };
 
 Google.updateDB = function() {

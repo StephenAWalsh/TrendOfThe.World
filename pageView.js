@@ -1,6 +1,6 @@
 'use strict';
 
-var articles = [];
+// var articles = [];
 
 function Article (opts) {
   this.author = opts.author;
@@ -15,6 +15,7 @@ Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
 
   $newArticle.removeClass('template');
+  $newArticle.addClass('not-template');
 
   $newArticle.find('a.read-more').attr('href', this.url);
   $newArticle.find('img').attr('alt', this.title);
@@ -29,15 +30,17 @@ Article.prototype.toHtml = function() {
   return $newArticle;
 }
 
-Google.fetchAll();
+Google.fetchAll(initPage);
 
 var initPage = function(){
+  var articles = [];
   Google.articles.forEach(function(articleObject) {
-    // Iterate over projectData and push results to projects array.
     articles.push(new Article(articleObject));
   });
-
+  $('.not-template').remove();
   articles.forEach(function(a) {
   $('#google-news').append(a.toHtml());
   });
 };
+
+// initPage();
