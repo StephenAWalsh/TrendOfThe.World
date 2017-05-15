@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('hello from json-to-sql');
-
 function Google() {};
 
 Google.articles = [];
@@ -41,9 +39,9 @@ Google.fetchAll = function(callback) {
   .then(
     function(results) {
       Google.articles = results;
+      callback();
     }
   )
-  .then(callback);
 };
 
 Google.updateDB = function() {
@@ -92,9 +90,9 @@ Buzzfeed.fetchAll = function(callback) {
   .then(
     function(results) {
       Buzzfeed.articles = results;
+      callback();
     }
   )
-  .then(callback);
 };
 
 Buzzfeed.updateDB = function() {
@@ -102,4 +100,9 @@ Buzzfeed.updateDB = function() {
   console.log('table truncated')
   Buzzfeed.insert();
   console.log('table updated')
+};
+
+var updateDB = function() {
+  Google.updateDB();
+  Buzzfeed.updateDB();
 };

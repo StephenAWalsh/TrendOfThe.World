@@ -1,9 +1,5 @@
 'use strict';
 
-console.log('hello from pageView');
-
-// var articles = [];
-
 function Article (opts) {
   this.author = opts.author;
   this.description = opts.description;
@@ -50,8 +46,19 @@ Article.prototype.toHtml = function() {
   return $newArticle;
 }
 
-Google.fetchAll();
-Buzzfeed.fetchAll();
+//Fetch data from DB and populate trending arrays
+
+// Google.fetchAll();
+// Buzzfeed.fetchAll();
+
+var fetchAll = function(callback) { //useful function to fetch from DB without refreshing the page
+  Google.fetchAll(function(){
+    Buzzfeed.fetchAll(function(){
+      callback();
+    });
+  });
+}
+
 
 var initPage = function(){
   var articles = [];
@@ -106,4 +113,7 @@ $('a.offbeat').click(function(event) {
   Article.showOffbeat();
 });
 
-// initPage();
+$( document ).ready(function() {
+  fetchAll(initPage);
+  console.log('ready');
+});
