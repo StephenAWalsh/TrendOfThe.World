@@ -11,6 +11,7 @@ function Article (opts) {
   this.title = opts.title;
   this.url = opts.url;
   this.urlToImage = opts.urltoimage;
+  this.category = opts.category;
 }
 
 Article.prototype.toHtml = function() {
@@ -19,6 +20,7 @@ Article.prototype.toHtml = function() {
   $newArticle.removeClass('template');
   $newArticle.addClass('not-template');
 
+  $newArticle.attr('data-category', this.category);
   $newArticle.find('a.img-link').attr('href', this.url);
   $newArticle.find('img').attr('src', this.urlToImage);
   $newArticle.find('img').attr('alt', this.title);
@@ -33,17 +35,28 @@ Article.prototype.toHtml = function() {
   return $newArticle;
 }
 
-Google.fetchAll(initPage);
+Google.fetchAll();
+Buzzfeed.fetchAll();
 
 var initPage = function(){
   var articles = [];
-  // debugger;
-  Google.articles.forEach(function(articleObject) {
-    articles.push(new Article(articleObject));
+  if (Google.articles.length > 0) {
+    Google.articles.forEach(function(articleObject) {
+      articles.push(new Article(articleObject));
+    });
+  }
+  if (Google.articles.length > 0) {
+    Buzzfeed.articles.forEach(function(articleObject) {
+      articles.push(new Article(articleObject));
+    });
+  }
+  articles.sort(function(a,b) {
+    // Sort the articles based on newest first.
+    return (new Date(b.publishedAt)) - (new Date(a.publishedAt));
   });
   $('.not-template').remove();
   articles.forEach(function(a) {
-  $('#google-news').append(a.toHtml());
+  $('#trending').append(a.toHtml());
   });
 };
 
