@@ -112,6 +112,54 @@ app.get('/buzzfeed', function(request, response) {
   })
 });
 
+//ESPN
+
+app.post('/espn', function(request, response) {
+  client.query(
+    `INSERT INTO
+      espn(author, description, publishedat, title, url, urltoimage, category)
+      VALUES ($1, $2, $3, $4, $5, $6, $7);
+    `,
+    [
+      request.body.author,
+      request.body.description,
+      request.body.publishedAt,
+      request.body.title,
+      request.body.url,
+      request.body.urlToImage,
+      'sports',
+    ]
+  )
+  .then(function() {
+    response.send('insert complete')
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+});
+
+app.delete('/espn', function(request, response) {
+  client.query(
+    'DELETE FROM espn;'
+  )
+  .then(function() {
+    response.send('Delete complete')
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+});
+
+app.get('/espn', function(request, response) {
+  client.query('SELECT * FROM espn')
+  .then(function(result) {
+    response.send(result.rows);
+  })
+  .catch(function(err) {
+    console.error(err)
+  })
+});
+
 
 
 app.listen(PORT, function() {
