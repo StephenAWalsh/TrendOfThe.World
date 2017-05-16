@@ -25,23 +25,24 @@
     <div class="nav-class">
       <nav class="main-nav">
         <ul class="nav">
-          <li><a href=""><i class="fa fa-home fa-3" aria-hidden="true"></i><span class="home">HOME</span></a></li>
-          <li><a href="">TECH</a></li>
-          <li><a href="">GAMES</a></li>
-          <li><a href="">SPORTS</a></li>
-          <li><a href="">POLITICS</a></li>
+          <li><a class="home" href="#"><i class="fa fa-home fa-3" aria-hidden="true"></i></a></li>
+          <li><a class="news" href="#">NEWS</a></li>
+          <li><a class="offbeat" href="#">OFFBEAT</a></li>
+          <li><a class="sports" href="#">SPORTS</a></li>
+          <li><a class="politics" href="#">POLITICS</a></li>
         </ul>
       </nav>
     </div>
-    <div id="google-news" class="container">
-      <div class="template box">
-        <a class="img-link" target="_blank" href="">
-          <img src="" alt="">
-        </a>
-        <div class="tileBody">
-          <div class="time"><span class="date"></span></div>
-          <div><a class="article-link" target="_blank" href="">Title</a></div>
-        </div>
+    <div id="trending" class="container">
+
+      <div id="box" class="template" data-category="cat">
+          <a class="img-link" target="_blank" href="">
+            <img src="" alt="">
+          </a>
+          <a class="article-link" target="_blank" href="">Title</a>
+          <!-- <section class="article-description">Article Description</section> -->
+          <!-- <section>Written by <span class="author">author</span> on <span class="date">date</span></section> -->
+          <section>Posted <span class="date">date</span></section>
       </div>
     </div>
   </main>
@@ -55,8 +56,5 @@
   </script>
   <script src="json-to-sql.js"></script>
   <script src="pageView.js"></script>
-  <script>
-  Google.fetchAll(initPage)
-  </script>
 </body>
 </html>
