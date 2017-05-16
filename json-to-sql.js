@@ -1,5 +1,7 @@
 'use strict';
 
+//Google News
+
 function Google() {};
 
 Google.articles = [];
@@ -50,6 +52,8 @@ Google.updateDB = function() {
   Google.insert();
   console.log('table updated')
 };
+
+//Buzzfeed
 
 function Buzzfeed() {};
 
@@ -102,7 +106,59 @@ Buzzfeed.updateDB = function() {
   console.log('table updated')
 };
 
+function Espn() {};
+
+Espn.articles = [];
+
+Espn.truncateTable = function() {
+  $.ajax({
+    url: '/espn',
+    method: 'DELETE',
+  })
+  // .then(function(data) {
+  //   console.log(data);
+  // });
+};
+
+Espn.insert = function() {
+
+  $.ajax({
+    url: 'https://newsapi.org/v1/articles?source=espn&sortBy=top&apiKey=8e27dae588c2418eb0bd0559dea50b33',
+    method: 'GET',
+  })
+        .then(function(data) {
+          for (var i = 0; i < 5; i++) {
+            $.post('/espn', {
+              author: data.articles[i].author,
+              description: data.articles[i].description,
+              publishedAt: data.articles[i].publishedAt,
+              title: data.articles[i].title,
+              url: data.articles[i].url,
+              urlToImage: data.articles[i].urlToImage
+            });
+          }
+        });
+};
+
+Espn.fetchAll = function(callback) {
+  $.get('/espn')
+  .then(
+    function(results) {
+      Espn.articles = results;
+      callback();
+    }
+  )
+};
+
+Espn.updateDB = function() {
+  Espn.truncateTable();
+  console.log('table truncated')
+  Espn.insert();
+  console.log('table updated')
+};
+
 var updateDB = function() {
   Google.updateDB();
   Buzzfeed.updateDB();
+  Espn.updateDB();
 };
