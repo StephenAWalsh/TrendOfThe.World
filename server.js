@@ -161,6 +161,54 @@ app.get('/espn', function(request, response) {
 });
 
 
+//TechCrunch
+
+app.post('/techcrunch', function(request, response) {
+  client.query(
+    `INSERT INTO
+      techcrunch(author, description, publishedat, title, url, urltoimage, category)
+      VALUES ($1, $2, $3, $4, $5, $6, $7);
+    `,
+    [
+      request.body.author,
+      request.body.description,
+      request.body.publishedAt,
+      request.body.title,
+      request.body.url,
+      request.body.urlToImage,
+      'tech',
+    ]
+  )
+  .then(function() {
+    response.send('insert complete')
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+});
+
+app.delete('/techcrunch', function(request, response) {
+  client.query(
+    'DELETE FROM techcrunch;'
+  )
+  .then(function() {
+    response.send('Delete complete')
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+});
+
+app.get('/techcrunch', function(request, response) {
+  client.query('SELECT * FROM techcrunch')
+  .then(function(result) {
+    response.send(result.rows);
+  })
+  .catch(function(err) {
+    console.error(err)
+  })
+});
+
 
 app.listen(PORT, function() {
   console.log(`Server started on port ${PORT}!`);

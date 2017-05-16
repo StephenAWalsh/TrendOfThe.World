@@ -106,6 +106,8 @@ Buzzfeed.updateDB = function() {
   console.log('table updated')
 };
 
+//ESPN
+
 function Espn() {};
 
 Espn.articles = [];
@@ -157,8 +159,64 @@ Espn.updateDB = function() {
   console.log('table updated')
 };
 
+//TechCrunch
+
+function TechCrunch() {};
+
+TechCrunch.articles = [];
+
+TechCrunch.truncateTable = function() {
+  $.ajax({
+    url: '/techcrunch',
+    method: 'DELETE',
+  })
+  // .then(function(data) {
+  //   console.log(data);
+  // });
+};
+
+TechCrunch.insert = function() {
+
+  $.ajax({
+    url: 'https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=8e27dae588c2418eb0bd0559dea50b33',
+    method: 'GET',
+  })
+        .then(function(data) {
+          for (var i = 0; i < 5; i++) {
+            $.post('/techcrunch', {
+              author: data.articles[i].author,
+              description: data.articles[i].description,
+              publishedAt: data.articles[i].publishedAt,
+              title: data.articles[i].title,
+              url: data.articles[i].url,
+              urlToImage: data.articles[i].urlToImage
+            });
+          }
+        });
+};
+
+TechCrunch.fetchAll = function(callback) {
+  $.get('/techcrunch')
+  .then(
+    function(results) {
+      TechCrunch.articles = results;
+      callback();
+    }
+  )
+};
+
+TechCrunch.updateDB = function() {
+  TechCrunch.truncateTable();
+  console.log('table truncated')
+  TechCrunch.insert();
+  console.log('table updated')
+};
+
+//GLOBAL - Function to populate databases
+
 var updateDB = function() {
   Google.updateDB();
   Buzzfeed.updateDB();
   Espn.updateDB();
+  TechCrunch.updateDB();
 };
