@@ -37,30 +37,27 @@ Article.prototype.toHtml = function() {
   if (this.publishedAt) {
 
     if (hours < 1) {
-      $newArticle.find('span.date').html(minutes + ' minutes ago.');
+      $newArticle.find('span.date').html(minutes + 'm');
     } else if (hours = 1) {
-      $newArticle.find('span.date').html(hours + ' hour, ' + minutes + ' minutes ago.');
+      $newArticle.find('span.date').html(hours + 'h ' + minutes + 'm');
     } else {
-      $newArticle.find('span.date').html(hours + ' hours, ' + minutes + ' minutes ago.');
+      $newArticle.find('span.date').html(hours + 'h ' + minutes + 'm');
     }
   }
   else {
-    $newArticle.find('span.date').html('today.');
+    $newArticle.find('span.date').html('today');
   }
   // $newArticle.append('<hr>');
   return $newArticle;
 }
 
-//Fetch data from DB and populate trending arrays
-
-// Google.fetchAll();
-// Buzzfeed.fetchAll();
-
 var fetchAll = function(callback) { //useful function to fetch from DB without refreshing the page
   Google.fetchAll(function(){
     Buzzfeed.fetchAll(function(){
       Espn.fetchAll(function(){
-        callback();
+        TechCrunch.fetchAll(function(){
+          callback();
+        });
       });
     });
   });
@@ -81,6 +78,11 @@ var initPage = function(){
   }
   if (Espn.articles.length > 0) {
     Espn.articles.forEach(function(articleObject) {
+      articles.push(new Article(articleObject));
+    });
+  }
+  if (TechCrunch.articles.length > 0) {
+    TechCrunch.articles.forEach(function(articleObject) {
       articles.push(new Article(articleObject));
     });
   }
@@ -111,6 +113,10 @@ Article.showSports = function(){
   $('.not-template').hide();
   $('.not-template[data-category="sports"]').show();
 };
+Article.showTech = function(){
+  $('.not-template').hide();
+  $('.not-template[data-category="tech"]').show();
+};
 
 //Event Listeners
 
@@ -132,6 +138,11 @@ $('a.offbeat').click(function(event) {
 $('a.sports').click(function(event) {
   event.preventDefault();
   Article.showSports();
+});
+
+$('a.tech').click(function(event) {
+  event.preventDefault();
+  Article.showTech();
 });
 
 $( document ).ready(function() {
