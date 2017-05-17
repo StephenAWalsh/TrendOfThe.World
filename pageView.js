@@ -8,6 +8,7 @@ function Article (opts) {
   this.url = opts.url;
   this.urlToImage = opts.urltoimage;
   this.category = opts.category;
+  this.viewCount = opts.viewcount
 }
 
 Article.prototype.toHtml = function() {
@@ -27,6 +28,11 @@ Article.prototype.toHtml = function() {
   $newArticle.find('span.author').text(this.author);
   // $newArticle.find('span.date').text(this.publishedAt);
 
+
+  if (this.viewCount) {
+    var viewCountReadable = numeral(this.viewCount).format('0,0')
+    $newArticle.find('span.viewCount').text(viewCountReadable);
+  }
 
   var totalMinutes = parseInt((new Date() - new Date(this.publishedAt))/60/1000);
   var hours = Math.floor(totalMinutes/60);
@@ -56,13 +62,14 @@ var fetchAll = function(callback) { //useful function to fetch from DB without r
     Buzzfeed.fetchAll(function(){
       Espn.fetchAll(function(){
         TechCrunch.fetchAll(function(){
-          callback();
+          YouTube.fetchAll(function(){
+            callback();
+          })
         });
       });
     });
   });
 }
-
 
 var initPage = function(){
   var articles = [];
@@ -83,6 +90,11 @@ var initPage = function(){
   }
   if (TechCrunch.articles.length > 0) {
     TechCrunch.articles.forEach(function(articleObject) {
+      articles.push(new Article(articleObject));
+    });
+  }
+  if (YouTube.articles.length > 0) {
+    YouTube.articles.forEach(function(articleObject) {
       articles.push(new Article(articleObject));
     });
   }
@@ -117,6 +129,10 @@ Article.showTech = function(){
   $('.not-template').hide();
   $('.not-template[data-category="tech"]').show();
 };
+Article.showVideo = function(){
+  $('.not-template').hide();
+  $('.not-template[data-category="video"]').show();
+};
 
 //Event Listeners
 
@@ -143,6 +159,11 @@ $('a.sports').click(function(event) {
 $('a.tech').click(function(event) {
   event.preventDefault();
   Article.showTech();
+});
+
+$('a.video').click(function(event) {
+  event.preventDefault();
+  Article.showVideo();
 });
 
 $( document ).ready(function() {

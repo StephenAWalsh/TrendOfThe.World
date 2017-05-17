@@ -212,6 +212,59 @@ TechCrunch.updateDB = function() {
   console.log('table updated')
 };
 
+//YouTube
+
+function YouTube() {};
+
+YouTube.articles = [];
+
+YouTube.truncateTable = function() {
+  $.ajax({
+    url: '/youtube',
+    method: 'DELETE',
+  })
+  // .then(function(data) {
+  //   console.log(data);
+  // });
+};
+
+YouTube.insert = function() {
+  $.ajax({
+    url: 'https://www.googleapis.com/youtube/v3/videos?part=id,statistics,snippet&chart=mostPopular&maxResults=5&key=AIzaSyDbufW1Ct37Sw47blgSdKi2NVIviS1ZcqY',
+    method: 'GET',
+  })
+        .then(function(data) {
+          for (var i = 0; i < 5; i++) {
+            $.post('/youtube', {
+              author: data.items[i].snippet.channelTitle,
+              description: data.items[i].snippet.description,
+              publishedAt: data.items[i].snippet.publishedAt,
+              title: data.items[i].snippet.title,
+              url: 'https://www.youtube.com/watch?v=' + data.items[i].id,
+              urlToImage: data.items[i].snippet.thumbnails.medium.url,
+              viewCount: data.items[i].statistics.viewCount
+            });
+          }
+        });
+};
+
+YouTube.fetchAll = function(callback) {
+  $.get('/youtube')
+  .then(
+    function(results) {
+      YouTube.articles = results;
+      callback();
+    }
+  )
+};
+
+YouTube.updateDB = function() {
+  YouTube.truncateTable();
+  console.log('table truncated')
+  YouTube.insert();
+  console.log('table updated')
+};
+
 //GLOBAL - Function to populate databases
 
 var updateDB = function() {
@@ -219,4 +272,5 @@ var updateDB = function() {
   Buzzfeed.updateDB();
   Espn.updateDB();
   TechCrunch.updateDB();
+  YouTube.updateDB();
 };

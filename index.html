@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>TotW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style/style-white.css">
 
@@ -18,12 +19,10 @@
         <img src="images/trendtextblack.png" alt="">
       </div>
       <div class=""><img class="shadowed" src="images/trendskull.png" alt="">
-
       </div>
     </section>
   </header>
   <main>
-
     <div class="nav-class">
       <nav class="main-nav">
         <ul class="nav">
@@ -32,6 +31,7 @@
           <li><a class="offbeat" href="#">OFFBEAT</a></li>
           <li><a class="sports" href="#">SPORTS</a></li>
           <li><a class="tech" href="#">TECH</a></li>
+          <li><a class="video" href="#">VIDEO</a></li>
         </ul>
       </nav>
     </div>
@@ -43,6 +43,9 @@
         <div class="tileBody">
           <div class="time">
             <span class="date"></span>
+          </div>
+          <div>
+            <span class="viewCount"></span>
           </div>
           <div>
             <a class="article-link" target="_blank" href="">Title</a>
@@ -58,6 +61,7 @@
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous">
     </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="json-to-sql.js"></script>
     <script src="pageView.js"></script>
   </body>
