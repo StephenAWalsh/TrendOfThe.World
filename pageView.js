@@ -26,7 +26,7 @@ Article.prototype.toHtml = function() {
   $newArticle.find('section.article-description').text(this.description);
   // $newArticle.find('a.read-more').attr('href', this.url);
   $newArticle.find('span.author').text(this.author);
-  // $newArticle.find('span.date').text(this.publishedAt);
+  $newArticle.find('span.date').text(this.publishedAt);
 
 
   if (this.viewCount) {
@@ -35,25 +35,19 @@ Article.prototype.toHtml = function() {
   }
 
   var totalMinutes = parseInt((new Date() - new Date(this.publishedAt))/60/1000);
-  var hours = Math.floor(totalMinutes/60);
-  var minutes = Math.floor(totalMinutes - (hours*60));
+  var days = Math.floor(totalMinutes/60/24)
+  var hours = Math.floor(totalMinutes/60 - (days*24));
+  var minutes = Math.floor(totalMinutes - (days*24*60) - (hours*60));
 
-// $newArticle.find('span.date').html(hours + ' hours, ' + minutes + ' minutes ago.');
+  // $newArticle.find('span.date').html(days + ' days, ' + hours + ' hours, ' + minutes + ' minutes ago.');
 
-  if (this.publishedAt) {
-
-    if (hours < 1) {
-      $newArticle.find('span.date').html(minutes + 'm');
-    } else if (hours = 1) {
-      $newArticle.find('span.date').html(hours + 'h ' + minutes + 'm');
-    } else {
-      $newArticle.find('span.date').html(hours + 'h ' + minutes + 'm');
-    }
+  if (hours < 1) {
+    $newArticle.find('span.date').html(minutes + 'm');
+  } else if (hours >= 1 && days < 1) {
+    $newArticle.find('span.date').html(hours + 'h ' + minutes + 'm');
+  } else {
+    $newArticle.find('span.date').html(days + 'd ' + hours + 'h ' + minutes + 'm');
   }
-  else {
-    $newArticle.find('span.date').html('today');
-  }
-  // $newArticle.append('<hr>');
   return $newArticle;
 }
 
@@ -71,8 +65,9 @@ var fetchAll = function(callback) { //useful function to fetch from DB without r
   });
 }
 
+var articles = [];
+
 var initPage = function(){
-  var articles = [];
   if (Google.articles.length > 0) {
     Google.articles.forEach(function(articleObject) {
       articles.push(new Article(articleObject));
@@ -98,14 +93,23 @@ var initPage = function(){
       articles.push(new Article(articleObject));
     });
   }
-  articles.sort(function(a,b) {
-    // Sort the articles based on newest first.
-    return (new Date(b.publishedAt)) - (new Date(a.publishedAt));
-  });
+  var sort = function (callback){
+    articles.sort(function(a,b) {
+      // Sort the articles based on newest first.
+      return (new Date(b.publishedAt)) - (new Date(a.publishedAt));
+    });
+    callback();
+  }
+
   $('.not-template').remove();
-  articles.forEach(function(a) {
-  $('#trending').append(a.toHtml());
-  });
+
+  var append = function(){
+    articles.forEach(function(a) {
+    $('#trending').append(a.toHtml());
+    });
+  }
+
+  sort(append);
 };
 
 //Filters
@@ -175,6 +179,4 @@ $('a.video').click(function(event) {
   Article.showVideo();
 });
 
-$( document ).ready(function() {
-  fetchAll(initPage);
-});
+fetchAll(initPage);

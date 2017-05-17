@@ -27,7 +27,8 @@ Google.insert = function() {
             $.post('/google-news', {
               author: data.articles[i].author,
               description: data.articles[i].description,
-              publishedAt: data.articles[i].publishedAt,
+              // publishedAt: data.articles[i].publishedAt ? moment.parseZone(data.articles[i].publishedAt).local().format().slice(0, -6) : moment().format().slice(0, -6),
+              publishedAt: data.articles[i].publishedAt ? data.articles[i].publishedAt : moment().format(),
               title: data.articles[i].title,
               url: data.articles[i].url,
               urlToImage: data.articles[i].urlToImage
@@ -80,7 +81,8 @@ Buzzfeed.insert = function() {
             $.post('/buzzfeed', {
               author: data.articles[i].author,
               description: data.articles[i].description,
-              publishedAt: data.articles[i].publishedAt,
+              // publishedAt: data.articles[i].publishedAt ? moment.parseZone(data.articles[i].publishedAt).local().format().slice(0, -6) : moment().format().slice(0, -6),
+              publishedAt: data.articles[i].publishedAt ? data.articles[i].publishedAt : moment().format(),
               title: data.articles[i].title,
               url: data.articles[i].url,
               urlToImage: data.articles[i].urlToImage
@@ -133,7 +135,8 @@ Espn.insert = function() {
             $.post('/espn', {
               author: data.articles[i].author,
               description: data.articles[i].description,
-              publishedAt: data.articles[i].publishedAt,
+              // publishedAt: data.articles[i].publishedAt ? moment.parseZone(data.articles[i].publishedAt).local().format().slice(0, -6) : moment().format().slice(0, -6),
+              publishedAt: data.articles[i].publishedAt ? data.articles[i].publishedAt : moment().format(),
               title: data.articles[i].title,
               url: data.articles[i].url,
               urlToImage: data.articles[i].urlToImage
@@ -186,7 +189,8 @@ TechCrunch.insert = function() {
             $.post('/techcrunch', {
               author: data.articles[i].author,
               description: data.articles[i].description,
-              publishedAt: data.articles[i].publishedAt,
+              // publishedAt: data.articles[i].publishedAt ? moment.parseZone(data.articles[i].publishedAt).local().format().slice(0, -6) : moment().format().slice(0, -6),
+              publishedAt: data.articles[i].publishedAt ? data.articles[i].publishedAt : moment().format(),
               title: data.articles[i].title,
               url: data.articles[i].url,
               urlToImage: data.articles[i].urlToImage
@@ -238,7 +242,8 @@ YouTube.insert = function() {
             $.post('/youtube', {
               author: data.items[i].snippet.channelTitle,
               description: data.items[i].snippet.description,
-              publishedAt: data.items[i].snippet.publishedAt,
+              // publishedAt: data.items[i].snippet.publishedAt ? moment.parseZone(data.items[i].snippet.publishedAt).local().format().slice(0, -6) : moment().format().slice(0, -6),
+              publishedAt: data.items[i].snippet.publishedAt ? data.items[i].snippet.publishedAt : moment().format(),
               title: data.items[i].snippet.title,
               url: 'https://www.youtube.com/watch?v=' + data.items[i].id,
               urlToImage: data.items[i].snippet.thumbnails.medium.url,
@@ -274,3 +279,11 @@ var updateDB = function() {
   TechCrunch.updateDB();
   YouTube.updateDB();
 };
+
+var truncateDB = function() {
+  Google.truncateTable();
+  Buzzfeed.truncateTable();
+  Espn.truncateTable();
+  TechCrunch.truncateTable();
+  YouTube.truncateTable();
+}
