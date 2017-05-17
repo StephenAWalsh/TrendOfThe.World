@@ -229,7 +229,6 @@ YouTube.truncateTable = function() {
 };
 
 YouTube.insert = function() {
-https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=8e27dae588c2418eb0bd0559dea50b33
   $.ajax({
     url: 'https://www.googleapis.com/youtube/v3/videos?part=id,statistics,snippet&chart=mostPopular&maxResults=5&key=AIzaSyDbufW1Ct37Sw47blgSdKi2NVIviS1ZcqY',
     method: 'GET',
