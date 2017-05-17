@@ -209,6 +209,55 @@ app.get('/techcrunch', function(request, response) {
   })
 });
 
+//YouTube
+
+app.post('/youtube', function(request, response) {
+  client.query(
+    `INSERT INTO
+      youtube(author, description, publishedat, title, url, urltoimage, category, viewcount)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
+    `,
+    [
+      request.body.author,
+      request.body.description,
+      request.body.publishedAt,
+      request.body.title,
+      request.body.url,
+      request.body.urlToImage,
+      'video',
+      request.body.viewCount,
+    ]
+  )
+  .then(function() {
+    response.send('insert complete')
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+});
+
+app.delete('/youtube', function(request, response) {
+  client.query(
+    'DELETE FROM youtube;'
+  )
+  .then(function() {
+    response.send('Delete complete')
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+});
+
+app.get('/youtube', function(request, response) {
+  client.query('SELECT * FROM youtube')
+  .then(function(result) {
+    response.send(result.rows);
+  })
+  .catch(function(err) {
+    console.error(err)
+  })
+});
+
 
 app.listen(PORT, function() {
   console.log(`Server started on port ${PORT}!`);
