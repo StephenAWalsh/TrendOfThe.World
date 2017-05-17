@@ -74,12 +74,19 @@ footer {
 .template {
   display: none;
 }
-
+.site-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .title-logo {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 50%;
+  height: auto;
 }
 
 .fa {
@@ -138,9 +145,6 @@ footer {
   text-decoration: none;
 }
 
-.tileBody a:hover {
-  /*text-decoration: underline;*/
-}
 
 .box {
   margin: 20px 10px;
