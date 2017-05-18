@@ -164,6 +164,22 @@ Article.showVideo = function(){
 
 //Event Listeners
 
+
+$('.fa-circle').click(function (){
+  $('link[href="style/style-white.css"]').attr('href','style/style.css');
+  $('.container').css('display', 'none');
+  $('.container').fadeIn(2000);
+});
+$('.fa-circle-o').click(function (){
+ $('link[href="style/style.css"]').attr('href','style/style-white.css');
+ $('.container').css('display', 'none');
+ $('.container').fadeIn(2000);
+});
+$('.nav a').click(function (){
+  $('.container').css('display', 'none');
+  $('.container').fadeIn(700);
+});
+
 var idleTime = new Date().getTime();
 $(document.body).bind("mousemove keypress", function() {
   idleTime = new Date().getTime();
