@@ -97,6 +97,13 @@ footer {
   box-shadow: 8px 8px 8px gray;*/
 }
 
+.center-logo {
+  background-image: url('../images/text100pxblack.png');
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 100px;
+}
+
 .main-nav {
   /*max-width: 1300px;*/
   margin: 0 auto;
@@ -135,9 +142,6 @@ footer {
   align-items: center;
 }
 
-/*.right-nav {
-  right: 20px;
-}*/
 
 .right-nav:hover {
   background-color: #fff;
@@ -158,8 +162,12 @@ footer {
 }
 
 .tileBody {
-  padding: 8px 15px 15px 15px;
+  padding: 7px 15px 0px 15px;
   line-height: 20px;
+  height: 95px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
 }
 
 .tileBody a {
@@ -182,7 +190,6 @@ footer {
   flex-grow: 0;
   flex-shrink: 0;
   border-radius: 5px;
-  /*border: 1px solid #77797a;*/
   -webkit-box-shadow: 8px 8px 8px gray;
   -moz-box-shadow: 8px 8px 8px gray;
   box-shadow: 8px 8px 8px gray;
@@ -209,10 +216,18 @@ footer {
 }
 
 .time {
-  padding-bottom: 8px;
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
   font-size: 0.9em;
   font-weight: 300;
+}
+
+.time-left {
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .fa-cog {
@@ -225,7 +240,6 @@ footer {
   color: #000;
   background-color: #fff;
   border-radius: 5px;
-  /*border: 1px solid #bdbab6;*/
   -webkit-box-shadow: 5px 5px 5px #2a2929;
   -moz-box-shadow: 5px 5px 5px #2a2929;
   box-shadow: 5px 5px 5px #2a2929;

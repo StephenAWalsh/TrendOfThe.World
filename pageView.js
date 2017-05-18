@@ -31,7 +31,7 @@ Article.prototype.toHtml = function() {
 
   if (this.viewCount) {
     var viewCountReadable = numeral(this.viewCount).format('0,0')
-    $newArticle.find('span.viewCount').text(viewCountReadable);
+    $newArticle.find('span.viewCount').text(viewCountReadable + " views");
   }
 
   var totalMinutes = parseInt((new Date() - new Date(this.publishedAt))/60/1000);
