@@ -164,6 +164,19 @@ Article.showVideo = function(){
 
 //Event Listeners
 
+var idleTime = new Date().getTime();
+$(document.body).bind("mousemove keypress", function() {
+  idleTime = new Date().getTime();
+});
+function refresh() {
+  if(new Date().getTime() - idleTime >= 60000) {
+    fetchAll(initPage);
+  } else {
+    setTimeout(refresh, 10000);
+  };
+};
+setTimeout(refresh, 10000);
+
 $('#trending').on('mouseenter', '.not-template', function() {
   // console.log('trending');
   var animation = 'animated pulse';
