@@ -1,5 +1,5 @@
 {
-  "name": "Trending",
+  "name": "trending",
   "version": "1.0.0",
   "description": "Pulls trending data from all over the web...",
   "main": "server.js",
