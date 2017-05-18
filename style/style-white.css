@@ -32,7 +32,7 @@ a:hover {
 }
 
 li {
-  padding-right: 10px
+  /*padding-right: 10px*/
 }
 
 body {
@@ -43,7 +43,6 @@ header {
   background-color: #f4f4f4;
   text-align: center;
   padding: 5px;
-  /*position: fixed;*/
   width: 100%;
 }
 
@@ -54,7 +53,6 @@ header div {
 main {
   /*max-width: 1300px;*/
   margin: 0 auto;
-  /*padding-top: 128px;*/
 }
 
 section {
@@ -86,10 +84,10 @@ footer {
   align-items: center;
 }
 .shadowed {
-    -webkit-filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.7));
-    /*filter: url(#drop-shadow);*/
-    -ms-filter: progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444');
-    filter: progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444');
+  -webkit-filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.7));
+  /*filter: url(#drop-shadow);*/
+  -ms-filter: progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444');
+  filter: progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444');
 }
 
 .title-logo img {
@@ -97,10 +95,6 @@ footer {
   /*-webkit-box-shadow: 5px 5px 5px gray;
   -moz-box-shadow: 5px 5px 5px gray;
   box-shadow: 8px 8px 8px gray;*/
-}
-
-.fa {
-  display: none;
 }
 
 .main-nav {
@@ -112,15 +106,15 @@ footer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-class {
   background-color: #f4f4f4;
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  /*padding-bottom: 8px;
-  position: sticky;*/
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 .nav-class a {
   text-decoration: none;
@@ -132,6 +126,21 @@ footer {
 .nav-class a:hover {
   border-bottom: 2px solid rgb(218,112,57);
   padding-bottom: 18px;
+}
+
+.left-nav, .right-nav {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*.right-nav {
+  right: 20px;
+}*/
+
+.right-nav:hover {
+  background-color: #fff;
 }
 
 .image-container {
@@ -174,8 +183,8 @@ footer {
   flex-shrink: 0;
   border-radius: 5px;
   /*border: 1px solid #77797a;*/
-  -webkit-box-shadow: 5px 5px 5px gray;
-  -moz-box-shadow: 5px 5px 5px gray;
+  -webkit-box-shadow: 8px 8px 8px gray;
+  -moz-box-shadow: 8px 8px 8px gray;
   box-shadow: 8px 8px 8px gray;
 }
 
@@ -189,9 +198,9 @@ footer {
 }
 
 .box:hover {
-  -webkit-box-shadow: 5px 5px 5px rgba(190, 86, 31, 0.75);
-  -moz-box-shadow: 5px 5px 5px rgba(190, 86, 31, 0.75);
-  box-shadow: 5px 5px 5px rgba(190, 86, 31, 0.75);
+  -webkit-box-shadow: 8px 8px 8px rgba(190, 86, 31, 0.75);
+  -moz-box-shadow: 8px 8px 8px rgba(190, 86, 31, 0.75);
+  box-shadow: 8px 8px 8px rgba(190, 86, 31, 0.75);
 }
 
 .box img {
@@ -206,21 +215,37 @@ footer {
   font-weight: 300;
 }
 
+.fa-cog {
+  font-size: 23px;
+}
+
+.fa-arrow-up {
+  display: none;
+  font-size: 60px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 5px;
+  /*border: 1px solid #bdbab6;*/
+  -webkit-box-shadow: 5px 5px 5px #2a2929;
+  -moz-box-shadow: 5px 5px 5px #2a2929;
+  box-shadow: 5px 5px 5px #2a2929;
+}
+
 .fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	animation-duration: 1s;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*     MEDIA QUERIES
@@ -235,7 +260,7 @@ footer {
   }
   .box a {
     line-height: 22px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 400;
   }
   .time {
@@ -249,6 +274,37 @@ footer {
     padding-right: 0;
   }
   .nav-class a {
-    padding: 20px 8px;
+    padding: 15px 14px;
+  }
+
+  .fa-arrow-up {
+    display: inline;
+  }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 30px;
+    background: transparent;
+    cursor: pointer;
+    border: 0;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+  }
+  #back-to-top:hover {
+    background: transparent;
+  }
+  #back-to-top.show {
+    opacity: 1;
+  }
+  #content {
+    /*height: 2000px;*/
   }
 }

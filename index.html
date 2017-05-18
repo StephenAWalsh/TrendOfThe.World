@@ -24,6 +24,7 @@
   </header>
   <main>
     <div class="nav-class">
+      <div class="left-nav">&nbsp;</div>
       <nav class="main-nav">
         <ul class="nav animated bounceIn">
           <li><a class="home" href="#"><i class="fa fa-home fa-3" aria-hidden="true"></i>HOME</a></li>
@@ -34,6 +35,7 @@
           <li><a class="video" href="#">VIDEO</a></li>
         </ul>
       </nav>
+      <div class="right-nav"><i class="fa fa-cog fa-3" aria-hidden="true"></i></div>
     </div>
     <div id="trending" class="container">
         <div class="template box" data-category="cat">
@@ -54,6 +56,8 @@
         </div>
       </div>
     </main>
+    <div id="content"></div>
+<a href="#" id="back-to-top" title="Back to top"><i class="fa fa-arrow-up fa-4" aria-hidden="true"></i></a>
     <footer>
       <p>powered by <a href="http://NewsAPI.org">NewsAPI.org</a></p>
     </footer>
@@ -66,5 +70,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="json-to-sql.js"></script>
     <script src="pageView.js"></script>
+    <script>
+    if ($('#back-to-top').length) {
+    var scrollTrigger = 800, // px
+        backToTop = function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > scrollTrigger) {
+                $('#back-to-top').addClass('show');
+            } else {
+                $('#back-to-top').removeClass('show');
+            }
+        };
+    backToTop();
+    $(window).on('scroll', function () {
+        backToTop();
+    });
+    $('#back-to-top').on('click', function (e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        }, 900);
+    });
+}
+    </script>
   </body>
   </html>
