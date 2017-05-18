@@ -287,3 +287,4 @@ var truncateDB = function() {
   TechCrunch.truncateTable();
   YouTube.truncateTable();
 }
+updateDB()
