@@ -92,9 +92,9 @@ footer {
 
 .title-logo img {
   max-width: 100px;
-  /*-webkit-box-shadow: 5px 5px 5px gray;
-  -moz-box-shadow: 5px 5px 5px gray;
-  box-shadow: 8px 8px 8px gray;*/
+  -webkit-filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.7));
+  -ms-filter: progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444');
+  filter: progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444');
 }
 
 .center-logo {
@@ -144,7 +144,7 @@ footer {
 
 
 .right-nav:hover {
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 .image-container {

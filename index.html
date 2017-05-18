@@ -26,7 +26,7 @@
       <div class="left-nav">&nbsp;</div>
       <nav class="main-nav">
         <ul class="nav animated bounceIn">
-          <li><a class="home" href="#"><i class="fa fa-home fa-3" aria-hidden="true"></i>HOME</a></li>
+          <li><a class="home" href="#">HOME</a></li>
           <li><a class="news"  href="#">NEWS</a></li>
           <li><a class="offbeat" href="#">OFFBEAT</a></li>
           <li><a class="sports" href="#">SPORTS</a></li>
@@ -89,5 +89,23 @@
     });
 }
     </script>
+    <script>
+  $('.fa-circle').click(function (){
+   $('link[href="style/style-white.css"]').attr('href','style/style.css');
+   $('.container').css('display', 'none');
+$('.container').fadeIn(2000);
+});
+$('.fa-circle-o').click(function (){
+   $('link[href="style/style.css"]').attr('href','style/style-white.css');
+   $('.container').css('display', 'none');
+$('.container').fadeIn(2000);
+});
+</script>
+<script>
+$('.nav a').click(function (){
+$('.container').css('display', 'none');
+$('.container').fadeIn(700);
+});
+</script>
   </body>
   </html>
