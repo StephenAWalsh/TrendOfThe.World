@@ -164,6 +164,7 @@ Article.showVideo = function(){
 
 //Event Listeners
 
+
 $('.fa-circle').click(function (){
   $('link[href="style/style-white.css"]').attr('href','style/style.css');
   $('.container').css('display', 'none');
@@ -178,6 +179,19 @@ $('.nav a').click(function (){
   $('.container').css('display', 'none');
   $('.container').fadeIn(700);
 });
+
+var idleTime = new Date().getTime();
+$(document.body).bind("mousemove keypress", function() {
+  idleTime = new Date().getTime();
+});
+function refresh() {
+  if(new Date().getTime() - idleTime >= 60000) {
+    fetchAll(initPage);
+  } else {
+    setTimeout(refresh, 10000);
+  };
+};
+setTimeout(refresh, 10000);
 
 $('#trending').on('mouseenter', '.not-template', function() {
   // console.log('trending');
