@@ -1,7 +1,6 @@
 'use strict';
 
 const pg = require('pg');
-const bodyParser = require('body-parser');
 const request = require('superagent');
 const moment = require('moment');
 
@@ -9,9 +8,6 @@ const conString = process.env.DATABASE_URL || "postgres://tom:myPassword@localho
 
 const client = new pg.Client(conString);
 client.connect();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 var googleAPI = 'https://newsapi.org/v1/articles?source=google-news&sortBy=top&apiKey=8e27dae588c2418eb0bd0559dea50b33';
 
@@ -144,3 +140,6 @@ request.get(youTubeAPI, function(err, res){
     )
   };
 });
+
+console.log('complete');
+process.exit();

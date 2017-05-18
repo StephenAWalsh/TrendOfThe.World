@@ -4,6 +4,8 @@
   "description": "Pulls trending data from all over the web...",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "updateDB": "node updateDB.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt, Pablo, Kenny, Steve",
@@ -12,7 +14,6 @@
     "animate.css": "^3.5.2",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "fs": "0.0.1-security",
     "moment": "^2.18.1",
     "pg": "^6.2.2",
     "superagent": "^3.5.2"

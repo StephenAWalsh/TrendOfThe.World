@@ -3,7 +3,6 @@
 const express = require('express');
 const pg = require('pg');
 const bodyParser = require('body-parser');
-const fs = require('fs');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -16,9 +15,6 @@ client.connect();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./'));
-
-//Truncate and update all DB tables
-fs.readFileSync('updateDB.js')
 
 //Google News
 
