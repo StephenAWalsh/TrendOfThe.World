@@ -4,6 +4,8 @@
   "description": "Pulls trending data from all over the web...",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "updateDB": "node updateDB.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt, Pablo, Kenny, Steve",
