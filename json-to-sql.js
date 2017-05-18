@@ -286,7 +286,7 @@ var updateDB = function(callback) {
     Buzzfeed.updateDB(function(){
       Espn.updateDB(function(){
         TechCrunch.updateDB(function(){
-          ouTube.updateDB(function(){
+          YouTube.updateDB(function(){
             callback();
           })
         });
