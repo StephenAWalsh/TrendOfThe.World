@@ -272,28 +272,13 @@ YouTube.updateDB = function() {
 
 //GLOBAL - Function to populate databases
 
-// var updateDB = function(callback) {
-//   Google.updateDB();
-//   Buzzfeed.updateDB();
-//   Espn.updateDB();
-//   TechCrunch.updateDB();
-//   YouTube.updateDB();
-//   callback();
-// };
-
-var updateDB = function(callback) {
-  Google.updateDB(function(){
-    Buzzfeed.updateDB(function(){
-      Espn.updateDB(function(){
-        TechCrunch.updateDB(function(){
-          YouTube.updateDB(function(){
-            callback();
-          })
-        });
-      });
-    });
-  });
-}
+var updateDB = function() {
+  Google.updateDB();
+  Buzzfeed.updateDB();
+  Espn.updateDB();
+  TechCrunch.updateDB();
+  YouTube.updateDB();
+};
 
 var truncateDB = function() {
   Google.truncateTable();
