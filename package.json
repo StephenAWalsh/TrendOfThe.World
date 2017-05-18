@@ -12,6 +12,8 @@
     "animate.css": "^3.5.2",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "pg": "^6.2.2"
+    "moment": "^2.18.1",
+    "pg": "^6.2.2",
+    "superagent": "^3.5.2"
   }
 }
