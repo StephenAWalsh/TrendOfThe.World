@@ -272,12 +272,13 @@ YouTube.updateDB = function() {
 
 //GLOBAL - Function to populate databases
 
-var updateDB = function() {
+var updateDB = function(callback) {
   Google.updateDB();
   Buzzfeed.updateDB();
   Espn.updateDB();
   TechCrunch.updateDB();
   YouTube.updateDB();
+  callback();
 };
 
 var truncateDB = function() {
@@ -287,4 +288,3 @@ var truncateDB = function() {
   TechCrunch.truncateTable();
   YouTube.truncateTable();
 }
-updateDB()

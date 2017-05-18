@@ -179,4 +179,8 @@ $('a.video').click(function(event) {
   Article.showVideo();
 });
 
-fetchAll(initPage);
+var fetch = function() {
+  fetchAll(initPage);
+}
+
+updateDB(fetch)
