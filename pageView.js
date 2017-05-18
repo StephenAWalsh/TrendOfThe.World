@@ -141,7 +141,7 @@ Article.showVideo = function(){
 //Event Listeners
 
 $('#trending').on('mouseenter', '.not-template', function() {
-  console.log('trending');
+  // console.log('trending');
   var animation = 'animated pulse';
   var animationend = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
   $(this).addClass(animation).one(animationend, function(){
