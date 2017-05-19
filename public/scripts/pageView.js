@@ -68,6 +68,7 @@ var fetchAll = function(callback) { //useful function to fetch from DB without r
 var articles = [];
 
 var initPage = function(){
+  articles = [];
   if (Google.articles.length > 0) {
     Google.articles.forEach(function(articleObject) {
       articles.push(new Article(articleObject));
