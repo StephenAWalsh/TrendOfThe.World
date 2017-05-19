@@ -139,7 +139,7 @@ $(document).ready(function() {
 // BACK TO TOP
 
 if ($('#back-to-top').length) {
-  var scrollTrigger = 800, // px
+  var scrollTrigger = 0, // px
       backToTop = function () {
           var scrollTop = $(window).scrollTop();
           if (scrollTop > scrollTrigger) {
