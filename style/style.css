@@ -16,7 +16,6 @@ img {
 
 p {
   color: #a19d9d;
-  padding: 5px;
 }
 
 h1 {
@@ -178,6 +177,124 @@ footer {
   font-size: 0.9em;
   font-weight: 300;
 }
+
+
+.navicon {
+  width: 100%;
+  background: transparent;
+  margin: 80px auto 40px;
+  position: relative;
+  height: 30px;
+  width: 50px;
+  display: block;
+  z-index: 99;
+  transition: linear 0.5s all;
+  &:before,
+  &:after {
+    background: #fff;
+    backface-visibility: hidden;
+    content: "";
+    height: 3px;
+    left: 0;
+    transition: 0.8s ease;
+    width: 45px;
+  }
+  &:before {
+    box-shadow: #fff 0 14px 0 0;
+    position: absolute;
+    top: 0;
+  }
+  &:after {
+    position: absolute;
+    top: 28px;
+  }
+  &--active {
+    margin-top: 20px;
+    transition: linear 0.5s all;
+    &:before {
+      box-shadow: transparent 0 0 0 0;
+      top: 15px;
+      transform: rotate(225deg);
+    }
+    &:after {
+      top: 15px;
+      transform: rotate(315deg);
+    }
+  }
+}
+
+.toggle {
+  display: block;
+  margin: 20px auto;
+  width: 30%;
+  background-color: rgba(255, 255, 255, .8);
+  padding: 15px;
+  display: block;
+  opacity: 0;
+  transition: ease-in 0.5s all;
+  transform: translateY(-200%);
+  min-width: 320px;
+  &--active {
+    display: block;
+    opacity: 1;
+    transition: ease-in 0.5s all;
+    transform: translateY(0);
+  }
+  &__menu {
+    margin-bottom: 25px;
+    li {
+      width: 25%;
+      display: block;
+      margin: 10px auto;
+      a {
+        text-decoration: none;
+        color: #000;
+        display: block;
+        text-align: center;
+        font-size: 17px;
+        text-transform: uppercase;
+        border-bottom: 2px solid transparent;
+        transition: linear 0.5s all;
+        font-weight: 500;
+        padding: 5px 0;
+        span {
+          text-transform: lowercase;
+        }
+        &:hover {
+          color: #db5523;
+          border-bottom: 2px solid #db5523;
+          transition: linear 0.5s all;
+          transform: scale(1.15);
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.social {
+  display: block;
+  width: 70%;
+  margin: 25px auto;
+  text-align: center;
+  font-size: 0;
+  li {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    a {
+      text-align: center;
+      color: #000;
+      font-size: 25px;
+      transition: linear 0.5s all;
+      &:hover {
+        color: #db5523;
+        transition: linear 0.5s all;
+      }
+    }
+  }
+}
+
 
 /*     MEDIA QUERIES
 ////////////////////////*/

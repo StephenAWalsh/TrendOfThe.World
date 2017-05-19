@@ -7,22 +7,103 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style/style-white.css">
+  <link rel="stylesheet" href="style/menu.css">
 
 </head>
 <body>
-  <header class="site-header">
-    <section class="title-logo">
-      <div class="">
-        <img src="images/trendskull.png" class="animated fadeInLeft" alt="">
+
+      <div class="sidebar">
+        <ul class="sidebar-list">
+          <div class="sidebar-item">
+            <div class="profile">
+              <div id="pablo">
+              </div>
+            </div>
+            <div class="info">
+              <h5>Pablo Mendoza</h5>
+              <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h6>
+              <div class="social">
+                <a href="#" class="social">Github</a>
+                <a href="#" class="social">Linkedin</a>
+                <a href="#" class="social">Website</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-item">
+            <div class="profile">
+              <div id="steve">
+              </div>
+            </div>
+            <div class="info">
+              <h5>Steve Walsh</h5>
+              <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h6>
+              <div class="social">
+                <a href="#" class="social">Github</a>
+                <a href="#" class="social">Linkedin</a>
+                <a href="#" class="social">Website</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-item">
+            <div class="profile">
+              <div id="matt">
+              </div>
+            </div>
+            <div class="info">
+              <h5>Matt Reyes</h5>
+              <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h6>
+              <div class="social">
+                <a href="#" class="social">Github</a>
+                <a href="#" class="social">Linkedin</a>
+                <a href="#" class="social">Website</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-item">
+            <div class="profile">
+              <div id="kenny">
+              </div>
+            </div>
+            <div class="info">
+              <h5>Kenny Hong</h5>
+              <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h6>
+              <div class="social">
+                <a href="#" class="social">Github</a>
+                <a href="#" class="social">Linkedin</a>
+                <a href="#" class="social">Website</a>
+              </div>
+            </div>
+          </div>
+        </ul>
       </div>
-      <div>
-        <img src="images/trendtextblack.png" class="animated zoomIn" alt="">
-      </div>
-      <div class=""><img src="images/trendskull.png" class="animated fadeInRight" alt="">
-      </div>
-    </section>
-  </header>
+
   <main>
+    <header class="site-header">
+      <section class="title-logo">
+        <div class="">
+          <img src="images/trendskull.png" class="animated fadeInLeft" alt="">
+        </div>
+        <div>
+          <img src="images/trendtextblack.png" class="animated zoomIn" alt="">
+        </div>
+        <div class=""><img src="images/trendskull.png" class="animated fadeInRight" alt="">
+        </div>
+      </section>
+    </header>
+
+    <nav>
+      <div class="nav-right hidden-xs">
+        <div class="button" id="btn">
+          <div class="bar top"></div>
+          <div class="bar middle"></div>
+          <div class="bar bottom"></div>
+        </div>
+      </div>
+      <!-- nav-right -->
+    </nav>
     <div class="nav-class">
       <div class="left-nav">&nbsp;</div>
       <nav class="main-nav">
@@ -35,8 +116,9 @@
           <li><a class="video" href="#">VIDEO</a></li>
         </ul>
       </nav>
-      <div class="right-nav"><i class="fa fa-cog fa-3" aria-hidden="true"></i></div>
     </div>
+
+
     <div id="trending" class="container">
         <div class="template box" data-category="cat">
           <a class="img-link" target="_blank" href="">
@@ -55,12 +137,13 @@
           </div>
         </div>
       </div>
+      <div id="content"></div>
+  <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-arrow-up fa-4" aria-hidden="true"></i></a>
+      <footer>
+        <p>powered by <a href="http://NewsAPI.org">NewsAPI.org</a></p>
+      </footer>
     </main>
-    <div id="content"></div>
-<a href="#" id="back-to-top" title="Back to top"><i class="fa fa-arrow-up fa-4" aria-hidden="true"></i></a>
-    <footer>
-      <p>powered by <a href="http://NewsAPI.org">NewsAPI.org</a></p>
-    </footer>
+
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -68,6 +151,7 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="app.js"></script>
     <script src="json-to-sql.js"></script>
     <script src="pageView.js"></script>
     <script>
