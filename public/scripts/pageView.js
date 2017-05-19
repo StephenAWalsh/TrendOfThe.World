@@ -113,7 +113,30 @@ var initPage = function(){
   sort(append);
 };
 
-//UI/UX
+////////  UI/UX  /////////
+
+// ABOUT US TOGGLE
+$(document).ready(function() {
+
+  function toggleSidebar() {
+    $(".button").toggleClass("active");
+    $("main").toggleClass("move-to-left");
+    $(".sidebar-item").toggleClass("active");
+  }
+
+  $(".button").on("click tap", function() {
+    toggleSidebar();
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode === 27) {
+      toggleSidebar();
+    }
+  });
+
+});
+
+// BACK TO TOP
 
 if ($('#back-to-top').length) {
   var scrollTrigger = 800, // px
@@ -163,9 +186,9 @@ Article.showVideo = function(){
   $('.not-template[data-category="video"]').show();
 };
 
-//Event Listeners
+//////  Event Listeners  //////
 
-
+// CSS TOGGLE LIGHT-DARK BG
 $('.fa-circle').click(function (){
   $('link[href="style/style-white.css"]').attr('href','style/style.css');
   $('.container').css('display', 'none');
