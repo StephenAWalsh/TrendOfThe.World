@@ -49,6 +49,8 @@ header div {
 
 main {
   margin: 0 auto;
+  background: #f4f4f4;
+  min-height: 800px;
 }
 
 section {
@@ -61,7 +63,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #312f3a;
-  height: 50px;
+  height: 100px;
   margin-top: 40px;
   font-family: 'Lato', sans-serif;
 }
@@ -125,7 +127,7 @@ footer {
 }
 
 .left-nav, .right-nav {
-  width: 80px;
+  width: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -222,6 +224,15 @@ footer {
   -webkit-box-shadow: 5px 5px 5px #2a2929;
   -moz-box-shadow: 5px 5px 5px #2a2929;
   box-shadow: 5px 5px 5px #2a2929;
+}
+
+.fa-circle, .fa-circle-o {
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.fa-circle-o {
+  display: none;
 }
 
 .fade-in {

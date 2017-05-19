@@ -188,17 +188,26 @@ Article.showVideo = function(){
 
 //////  Event Listeners  //////
 
+// $('.fa-circle').click(function (){
+// $('.fa-circle').toggle(function () {
+//     $('link[href="style/style-white.css"]').attr('href','style/style.css');
+// }, function () {
+//     $('link[href="style/style.css"]').attr('href','style/style-white.css');
+// });
+// });
+
 // CSS TOGGLE LIGHT-DARK BG
 $('.fa-circle').click(function (){
   $('link[href="style/style-white.css"]').attr('href','style/style.css');
-  $('.container').css('display', 'none');
-  $('.container').fadeIn(2000);
+  // $('.container').css('display', 'none');
+  $('.container').fadeIn(1000);
 });
 $('.fa-circle-o').click(function (){
  $('link[href="style/style.css"]').attr('href','style/style-white.css');
- $('.container').css('display', 'none');
- $('.container').fadeIn(2000);
+ // $('.container').css('display', 'none');
+ $('.container').fadeIn(1000);
 });
+
 $('.nav a').click(function (){
   $('.container').css('display', 'none');
   $('.container').fadeIn(700);
