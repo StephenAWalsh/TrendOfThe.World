@@ -48,6 +48,8 @@ header div {
 
 main {
   margin: 0 auto;
+  background: #000;
+  min-height: 800px;
 }
 
 section {
@@ -60,7 +62,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #312f3a;
-  height: 50px;
+  height: 100px;
   margin-top: 40px;
   font-family: 'Lato', sans-serif;
 }
@@ -126,7 +128,7 @@ footer {
 }
 
 .left-nav, .right-nav {
-  width: 80px;
+  width: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,12 +205,13 @@ footer {
   align-items: flex-end;
 }
 
-.fa-circle {
-  color: #fff;
-}
-
 .fa-circle, .fa-circle-o {
   font-size: 1.2em;
+  cursor: pointer;
+}
+
+.fa-circle {
+  display: none;
 }
 
 .fa-arrow-up {

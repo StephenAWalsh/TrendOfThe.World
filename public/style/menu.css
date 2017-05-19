@@ -17,7 +17,7 @@ main {
   top: 0;
   z-index: 1;
   right: 0;
-  /*background-color: #fff;*/
+  background-color: #fff;
 }
 
 .bar {
