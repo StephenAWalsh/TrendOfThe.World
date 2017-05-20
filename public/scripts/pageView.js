@@ -136,10 +136,35 @@ $(document).ready(function() {
 
 });
 
+// MOBILE ABOUT US TOGGLE
+$(document).ready(function() {
+
+  function toggleSidebar() {
+    $(".button-mobile").toggleClass("active");
+    $("main").toggleClass("move-to-left-mobile");
+    $(".sidebar-item").toggleClass("active");
+    $('.sidebar').toggleClass('sidebar-mobile');
+    $(".sidebar-item").toggleClass("sidebar-item-mobile");
+    $(".mobile-close").toggleClass("fa-times");
+  }
+
+  $(".button-mobile").on("click tap", function() {
+    toggleSidebar();
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode === 27) {
+      toggleSidebar();
+    }
+  });
+
+});
+
+
 // BACK TO TOP
 
 if ($('#back-to-top').length) {
-  var scrollTrigger = 800, // px
+  var scrollTrigger = 0, // px
       backToTop = function () {
           var scrollTop = $(window).scrollTop();
           if (scrollTop > scrollTrigger) {
@@ -188,24 +213,21 @@ Article.showVideo = function(){
 
 //////  Event Listeners  //////
 
-// $('.fa-circle').click(function (){
-// $('.fa-circle').toggle(function () {
-//     $('link[href="style/style-white.css"]').attr('href','style/style.css');
-// }, function () {
-//     $('link[href="style/style.css"]').attr('href','style/style-white.css');
-// });
-// });
-
 // CSS TOGGLE LIGHT-DARK BG
-$('.fa-circle').click(function (){
-  $('link[href="style/style-white.css"]').attr('href','style/style.css');
-  // $('.container').css('display', 'none');
-  $('.container').fadeIn(1000);
-});
-$('.fa-circle-o').click(function (){
- $('link[href="style/style.css"]').attr('href','style/style-white.css');
- // $('.container').css('display', 'none');
- $('.container').fadeIn(1000);
+
+$('.toggle').click(function(){
+  $('main').toggleClass('dark');
+  $('header').toggleClass('dark');
+  $('.nav-class').toggleClass('dark');
+  $('.center-logo').toggleClass('center-logo-white');
+  $('.box').toggleClass('box-shadow-off');
+  $('.link-color').toggleClass('link-color-dark');
+  $('.link-color-nav').toggleClass('link-color-nav-dark');
+  $('.time-color-light').toggleClass('time-color-dark');
+  $('.nav-light').toggleClass('nav-dark');
+  $('.box-light').toggleClass('box-dark');
+  $('.flip').toggleClass('fa-circle fa-circle-o');
+  $('body').toggleClass('dark');
 });
 
 $('.nav a').click(function (){

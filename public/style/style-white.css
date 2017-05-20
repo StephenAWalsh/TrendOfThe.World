@@ -54,7 +54,6 @@ main {
 }
 
 section {
-  /*border: 4px solid #af5203;*/
 }
 
 footer {
@@ -135,7 +134,6 @@ footer {
 
 
 .right-nav:hover {
-  /*background-color: #fff;*/
 }
 
 .image-container {
@@ -165,7 +163,6 @@ footer {
 }
 
 .tileBody a:hover {
-  /*text-decoration: underline;*/
 }
 
 .tileBody:hover {
@@ -183,11 +180,6 @@ footer {
   -webkit-box-shadow: 8px 8px 8px gray;
   -moz-box-shadow: 8px 8px 8px gray;
   box-shadow: 8px 8px 8px gray;
-}
-
-.box a {
-  font-weight: 300;
-  color: #000;
 }
 
 .box img {
@@ -227,12 +219,8 @@ footer {
 }
 
 .fa-circle, .fa-circle-o {
-  font-size: 1.2em;
+  font-size: 1.6em;
   cursor: pointer;
-}
-
-.fa-circle-o {
-  display: none;
 }
 
 .fade-in {
@@ -283,29 +271,5 @@ footer {
 
   .fa-arrow-up {
     display: inline;
-  }
-
-  #back-to-top {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    z-index: 9999;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 30px;
-    background: transparent;
-    cursor: pointer;
-    border: 0;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: opacity 0.2s ease-out;
-    opacity: 0;
-  }
-  #back-to-top:hover {
-    background: transparent;
-  }
-  #back-to-top.show {
-    opacity: 1;
   }
 }

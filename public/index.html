@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style/menu.css">
   <link rel="stylesheet" href="style/style-white.css">
+  <link rel="stylesheet" href="style/mobile.css">
 </head>
 <body>
-
 
   <main>
 
@@ -38,46 +38,50 @@
   </nav>
 <!--  /// HAMBURGER MENU - END /// -->
 
-    <div class="nav-class">
+    <div class="nav-class nav-light">
       <div class="left-nav">&nbsp;</div>
       <nav class="main-nav">
         <ul class="nav animated bounceIn">
-          <li><a class="home" href="#">HOME</a></li>
-          <li><a class="news"  href="#">NEWS</a></li>
-          <li><a class="offbeat" href="#">OFFBEAT</a></li>
-          <li><a class="sports" href="#">SPORTS</a></li>
-          <li><a class="tech" href="#">TECH</a></li>
-          <li><a class="video" href="#">VIDEO</a></li>
+          <li><a class="link-color-nav home" href="#">HOME</a></li>
+          <li><a class="link-color-nav news"  href="#">NEWS</a></li>
+          <li><a class="link-color-nav offbeat" href="#">OFFBEAT</a></li>
+          <li><a class="link-color-nav sports" href="#">SPORTS</a></li>
+          <li><a class="link-color-nav tech" href="#">TECH</a></li>
+          <li><a class="link-color-nav video" href="#">VIDEO</a></li>
         </ul>
       </nav>
-      <div class="right-nav"><i class="fa fa-circle fa-2" aria-hidden="true"></i><i class="fa fa-circle-o fa-2" aria-hidden="true"></i></div>
+      <div class="right-nav"><div class="toggle"><i class="fa flip fa-circle fa-2" aria-hidden="true"></i></div></div>
     </div>
     <div id="trending" class="container">
-      <div class="template box" data-category="cat">
+      <div class="template box box-light" data-category="cat">
         <a class="img-link" target="_blank" href="">
           <img src="" alt="">
         </a>
         <div class="tileBody">
           <div>
-            <a class="article-link" target="_blank" href="">Title</a>
+            <a class="link-color article-link" target="_blank" href="">Title</a>
           </div>
           <div class="time">
-            <span class="viewCount time-left"></span>
-            <span class="date time-right"></span>
+            <span class="viewCount time-left time-color-light"></span>
+            <span class="date time-right time-color-light"></span>
           </div>
         </div>
       </div>
 </div>
     <div id="content"></div>
-<a href="#" id="back-to-top" title="Back to top"><i class="fa fa-arrow-up fa-4" aria-hidden="true"></i></a>
-    <footer>
+<footer>
       <p>powered by <a href="http://NewsAPI.org">NewsAPI.org</a></p>
     </footer>
-
+  <div class="mobile-footer">
+    <div class="mobile-footer-left"><i class="button-mobile fa fa-bars fa-3" aria-hidden="true"></i></div>
+    <div><i VALUE="Reload Page" onClick="history.go(0)" class="fa fa-refresh fa-3" aria-hidden="true"></i></div>
+    <div class="mobile-footer-right"><a href="#" id="back-to-top" title="Back to top"><i class="fa fa-arrow-circle-up fa-3" aria-hidden="true"></i></a></div>
+  </div>
     </main>
 
     <!--  ///  ABOUT US OVERLAY - START /// -->
       <div class="sidebar">
+        <div><i class="mobile-close fa fa-4 button-mobile" aria-hidden="true"></i></div>
              <ul class="sidebar-list">
                <div class="sidebar-item">
                  <div class="profile">
