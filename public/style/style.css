@@ -53,7 +53,6 @@ main {
 }
 
 section {
-  /*border: 4px solid #af5203;*/
 }
 
 footer {
@@ -73,12 +72,7 @@ footer {
 .template {
   display: none;
 }
-/*.site-header{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}*/
+
 .title-logo {
   display: flex;
   flex-direction: row;
@@ -134,10 +128,6 @@ footer {
   align-items: center;
 }
 
-/*.right-nav:hover {
-  background-color: #2d2c2c;
-}*/
-
 .image-container {
   height: 150px;
 }
@@ -176,11 +166,6 @@ footer {
   border: 1px solid #77797a;
 }
 
-.box a {
-  font-weight: 300;
-  color: #fff;
-}
-
 .box img {
   border-radius: 4px 4px 0 0;
 }
@@ -208,10 +193,6 @@ footer {
 .fa-circle, .fa-circle-o {
   font-size: 1.6em;
   cursor: pointer;
-}
-
-.fa-circle {
-  display: none;
 }
 
 .fa-arrow-up {

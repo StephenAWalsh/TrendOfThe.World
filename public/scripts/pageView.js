@@ -188,24 +188,20 @@ Article.showVideo = function(){
 
 //////  Event Listeners  //////
 
-// $('.fa-circle').click(function (){
-// $('.fa-circle').toggle(function () {
-//     $('link[href="style/style-white.css"]').attr('href','style/style.css');
-// }, function () {
-//     $('link[href="style/style.css"]').attr('href','style/style-white.css');
-// });
-// });
-
 // CSS TOGGLE LIGHT-DARK BG
-$('.fa-circle').click(function (){
-  $('link[href="style/style-white.css"]').attr('href','style/style.css');
-  // $('.container').css('display', 'none');
-  $('.container').fadeIn(1000);
-});
-$('.fa-circle-o').click(function (){
- $('link[href="style/style.css"]').attr('href','style/style-white.css');
- // $('.container').css('display', 'none');
- $('.container').fadeIn(1000);
+
+$('.toggle').click(function(){
+  $('main').toggleClass('dark');
+  $('header').toggleClass('dark');
+  $('.nav-class').toggleClass('dark');
+  $('.center-logo').toggleClass('center-logo-white');
+  $('.box').toggleClass('box-shadow-off');
+  $('.link-color').toggleClass('link-color-dark');
+  $('.link-color-nav').toggleClass('link-color-nav-dark');
+  $('.time-color-light').toggleClass('time-color-dark');
+  $('.nav-light').toggleClass('nav-dark');
+  $('.box-light').toggleClass('box-dark');
+  $('.flip').toggleClass('fa-circle fa-circle-o');
 });
 
 $('.nav a').click(function (){
