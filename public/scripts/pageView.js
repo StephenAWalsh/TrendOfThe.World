@@ -136,6 +136,31 @@ $(document).ready(function() {
 
 });
 
+// MOBILE ABOUT US TOGGLE
+$(document).ready(function() {
+
+  function toggleSidebar() {
+    $(".button-mobile").toggleClass("active");
+    $("main").toggleClass("move-to-left-mobile");
+    $(".sidebar-item").toggleClass("active");
+    $('.sidebar').toggleClass('sidebar-mobile');
+    $(".sidebar-item").toggleClass("sidebar-item-mobile");
+    $(".mobile-close").toggleClass("fa-times");
+  }
+
+  $(".button-mobile").on("click tap", function() {
+    toggleSidebar();
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode === 27) {
+      toggleSidebar();
+    }
+  });
+
+});
+
+
 // BACK TO TOP
 
 if ($('#back-to-top').length) {
@@ -202,6 +227,7 @@ $('.toggle').click(function(){
   $('.nav-light').toggleClass('nav-dark');
   $('.box-light').toggleClass('box-dark');
   $('.flip').toggleClass('fa-circle fa-circle-o');
+  $('body').toggleClass('dark');
 });
 
 $('.nav a').click(function (){
