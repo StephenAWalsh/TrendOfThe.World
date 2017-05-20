@@ -31,21 +31,65 @@ var twitterAuth = function(callback){
 }
 
 var twitterTrends = 'https://api.twitter.com/1.1/trends/place.json';
+var twitterSearch = 'https://api.twitter.com/1.1/search/tweets.json';
+var twitterShow = 'https://api.twitter.com/1.1/statuses/show.json';
+var twitterOembed = 'https://publish.twitter.com/oembed';
 
 var twitterRequest = function(bearerToken){
-  request
-    .get(twitterTrends)
-    .set({
-      'Authorization': 'Bearer ' + bearerToken
-    })
-    .query({
-      'id': '23424977'
-    })
-    .end(function(err, res){
-      for (var i = 0; i < 5; i++) {
-        console.log(res.body[0].trends[i]);
-      }
-     });
-}
+    var getPopTrends = function(callback) {
+      var popTrends = [];
+      request
+        .get(twitterTrends)
+        .set({
+          'Authorization': 'Bearer ' + bearerToken
+        })
+        .query({
+          'id': '23424977'
+        })
+        .end(function(err, res){
+          for (var i = 0; i < 5; i++) {
+            // console.log(i)
+            // console.log(res.body[0].trends[i].name);
+            popTrends.push(res.body[0].trends[i].name);
+          }
+          callback(popTrends);
+          // console.log(popTrends)
+        });
+    };
+    var searchTweetsByTrend = function(trends) {
+      for(var i = 0; i < trends.length; i++) {
+      request
+      .get(twitterSearch)
+      .set({
+        'Authorization': 'Bearer ' + bearerToken
+      })
+      .query({
+        'q': trends[i],
+        'result_type': 'popular',
+        'count': '1'
+      })
+      .end(function(err, res){
+        // console.log(res.body.statuses[0].user.screen_name);
+        // console.log(res.body.statuses[0].id_str);
+        var userName = res.body.statuses[0].user.screen_name;
+        var tweetID = res.body.statuses[0].id_str;
+        var tweetUrl = 'https://twitter.com/' + userName + '/statuses/' + tweetID;
+        // console.log(tweetUrl);
+        request
+        .get(twitterOembed)
+        .query({
+          'url': tweetUrl,
+          'maxwidth': 300,
+          'omit_script': true
+        })
+        .end(function(err, res){
+          console.log(res.body.html);
+          // var tweetHtml = res.body.html;
+        })
+      })
+    };
+    };
+    getPopTrends(searchTweetsByTrend);
+};
 
 twitterAuth(twitterRequest);
