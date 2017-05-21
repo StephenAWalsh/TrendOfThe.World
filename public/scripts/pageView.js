@@ -8,6 +8,7 @@ function Article (opts) {
   this.url = opts.url;
   this.urlToImage = opts.urltoimage;
   this.category = opts.category;
+  this.icon = opts.icon;
   this.viewCount = opts.viewcount
 }
 
@@ -19,8 +20,9 @@ Article.prototype.toHtml = function() {
 
   $newArticle.attr('data-category', this.category);
   $newArticle.find('a.img-link').attr('href', this.url);
-  $newArticle.find('img').attr('src', this.urlToImage);
-  $newArticle.find('img').attr('alt', this.title);
+  $newArticle.find('.imgUrl').attr('src', this.urlToImage);
+  $newArticle.find('.imgUrl').attr('alt', this.title);
+  $newArticle.find('.iconUrl').attr('src', this.icon);
   $newArticle.find('a.article-link').text(this.title);
   $newArticle.find('a.article-link').attr('href', this.url)
   $newArticle.find('section.article-description').text(this.description);
@@ -181,7 +183,7 @@ if ($('#back-to-top').length) {
       e.preventDefault();
       $('html,body').animate({
           scrollTop: 0
-      }, 900);
+      }, 300);
   });
 }
 
