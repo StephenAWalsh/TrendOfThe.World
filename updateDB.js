@@ -29,7 +29,7 @@ var updateGoogle = function(callback) {
           res.body.articles[i].publishedAt ? res.body.articles[i].publishedAt : moment().format(),
           res.body.articles[i].title,
           res.body.articles[i].url,
-          res.body.articles[i].urlToImage ? res.body.articles[i].urlToImage : 'images/null.jpg',
+          res.body.articles[i].urlToImage ? res.body.articles[i].urlToImage : 'images/googleNews.png',
           'news',
         ]
       )
@@ -57,7 +57,7 @@ var updateBuzzfeed = function(callback) {
           res.body.articles[i].publishedAt ? res.body.articles[i].publishedAt : moment().format(),
           res.body.articles[i].title,
           res.body.articles[i].url,
-          res.body.articles[i].urlToImage ? res.body.articles[i].urlToImage : 'images/null.jpg',
+          res.body.articles[i].urlToImage ? res.body.articles[i].urlToImage : 'images/buzzFeed.png',
           'offbeat',
         ]
       )
@@ -85,7 +85,7 @@ var updateEspn = function(callback) {
           res.body.articles[i].publishedAt ? res.body.articles[i].publishedAt : moment().format(),
           res.body.articles[i].title,
           res.body.articles[i].url,
-          res.body.articles[i].urlToImage ? res.body.articles[i].urlToImage : 'images/null.jpg',
+          res.body.articles[i].urlToImage ? res.body.articles[i].urlToImage : 'images/espn.png',
           'sports',
         ]
       )
@@ -113,7 +113,7 @@ var updateTechCrunch = function(callback) {
           res.body.articles[i].publishedAt ? res.body.articles[i].publishedAt : moment().format(),
           res.body.articles[i].title,
           res.body.articles[i].url,
-          res.body.articles[i].urlToImage ? res.body.articles[i].urlToImage : 'images/null.jpg',
+          res.body.articles[i].urlToImage ? res.body.articles[i].urlToImage : 'images/techCrunch.png',
           'tech',
         ]
       )

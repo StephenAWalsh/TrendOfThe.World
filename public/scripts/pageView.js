@@ -237,6 +237,10 @@ $('.nav a').click(function (){
   $('.container').fadeIn(700);
 });
 
+$('.mobile-refresh').click(function() {
+  fetchAll(initPage);
+});
+
 var idleTime = new Date().getTime();
 $(document.body).bind("mousemove keypress", function() {
   idleTime = new Date().getTime();
