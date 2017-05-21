@@ -1,13 +1,13 @@
 'use strict';
 
-// const pg = require('pg');
+const pg = require('pg');
 const request = require('superagent');
-// const moment = require('moment');
+const moment = require('moment');
 
-// const conString = process.env.DATABASE_URL || "postgres://tom:myPassword@localhost:5432/trending"
+const conString = process.env.DATABASE_URL || "postgres://tom:myPassword@localhost:5432/trending"
 
-// const client = new pg.Client(conString);
-// client.connect();
+const client = new pg.Client(conString);
+client.connect();
 
 
 var consumer_key = '20ux24G6Ft9Cj5MrVEHEI01jj';
@@ -51,6 +51,15 @@ var twitterRequest = function(bearerToken){
             // console.log(i)
             // console.log(res.body[0].trends[i].name);
             popTrends.push(res.body[0].trends[i].name);
+            client.query(
+              `INSERT INTO
+                twitter(hashtag)
+                VALUES ($1);
+              `,
+              [
+                res.body[0].trends[i].name,
+              ]
+            );
           }
           callback(popTrends);
           // console.log(popTrends)
@@ -69,11 +78,25 @@ var twitterRequest = function(bearerToken){
         'count': '1'
       })
       .end(function(err, res){
-        // console.log(res.body.statuses[0].user.screen_name);
+        // console.log(res.body.statuses[0].user.name);
         // console.log(res.body.statuses[0].id_str);
         var userName = res.body.statuses[0].user.screen_name;
         var tweetID = res.body.statuses[0].id_str;
         var tweetUrl = 'https://twitter.com/' + userName + '/statuses/' + tweetID;
+        // client.query(
+        //   `INSERT INTO
+        //     twitter(author, description, publishedat, url, category)
+        //     VALUES ($1, $2, $3, $4, $5);
+        //   `,
+        //   [
+        //     res.body.statuses[0].user.name,
+        //     res.body.statuses[0].text,
+        //     // res.body.statuses[0].created_at,
+        //     moment().format(),
+        //     tweetUrl,
+        //     'twitter',
+        //   ]
+        // )
         // console.log(tweetUrl);
         request
         .get(twitterOembed)
@@ -83,7 +106,16 @@ var twitterRequest = function(bearerToken){
           'omit_script': true
         })
         .end(function(err, res){
-          console.log(res.body.html);
+          // console.log(res.body.html);
+          // client.query(
+          //   `INSERT INTO
+          //     twitter(html)
+          //     VALUES ($1);
+          //   `,
+          //   [
+          //     res.body.html,
+          //   ]
+          // )
           // var tweetHtml = res.body.html;
         })
       })
