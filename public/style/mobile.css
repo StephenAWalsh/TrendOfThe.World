@@ -208,3 +208,12 @@ h5 {
   font-size: 4em;
   padding-bottom: 10px;
 }
+
+img.img-icon {
+  width: 35px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: auto;
+  border-radius: 5px;
+}

@@ -21,8 +21,8 @@ app.use(express.static('./public/'));
 app.post('/google-news', function(request, response) {
   client.query(
     `INSERT INTO
-      google_news(author, description, publishedat, title, url, urltoimage, category)
-      VALUES ($1, $2, $3, $4, $5, $6, $7);
+      google_news(author, description, publishedat, title, url, urltoimage, category, icon)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
     `,
     [
       request.body.author,
@@ -32,6 +32,7 @@ app.post('/google-news', function(request, response) {
       request.body.url,
       request.body.urlToImage,
       'news',
+      'images/cnn.png',
     ]
   )
   .then(function() {
@@ -69,8 +70,8 @@ app.get('/google-news', function(request, response) {
 app.post('/buzzfeed', function(request, response) {
   client.query(
     `INSERT INTO
-      buzzfeed(author, description, publishedat, title, url, urltoimage, category)
-      VALUES ($1, $2, $3, $4, $5, $6, $7);
+      buzzfeed(author, description, publishedat, title, url, urltoimage, category, icon)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
     `,
     [
       request.body.author,
@@ -80,6 +81,7 @@ app.post('/buzzfeed', function(request, response) {
       request.body.url,
       request.body.urlToImage,
       'offbeat',
+      'images/buzzfeed.png',
     ]
   )
   .then(function() {
@@ -117,8 +119,8 @@ app.get('/buzzfeed', function(request, response) {
 app.post('/espn', function(request, response) {
   client.query(
     `INSERT INTO
-      espn(author, description, publishedat, title, url, urltoimage, category)
-      VALUES ($1, $2, $3, $4, $5, $6, $7);
+      espn(author, description, publishedat, title, url, urltoimage, category, icon)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
     `,
     [
       request.body.author,
@@ -128,6 +130,7 @@ app.post('/espn', function(request, response) {
       request.body.url,
       request.body.urlToImage,
       'sports',
+      'images/espn.png',
     ]
   )
   .then(function() {
@@ -166,8 +169,8 @@ app.get('/espn', function(request, response) {
 app.post('/techcrunch', function(request, response) {
   client.query(
     `INSERT INTO
-      techcrunch(author, description, publishedat, title, url, urltoimage, category)
-      VALUES ($1, $2, $3, $4, $5, $6, $7);
+      techcrunch(author, description, publishedat, title, url, urltoimage, category, icon)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
     `,
     [
       request.body.author,
@@ -177,6 +180,7 @@ app.post('/techcrunch', function(request, response) {
       request.body.url,
       request.body.urlToImage,
       'tech',
+      'images/techcrunch.png',
     ]
   )
   .then(function() {
@@ -214,8 +218,8 @@ app.get('/techcrunch', function(request, response) {
 app.post('/youtube', function(request, response) {
   client.query(
     `INSERT INTO
-      youtube(author, description, publishedat, title, url, urltoimage, category, viewcount)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
+      youtube(author, description, publishedat, title, url, urltoimage, category, viewcount, icon)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
     `,
     [
       request.body.author,
@@ -226,6 +230,7 @@ app.post('/youtube', function(request, response) {
       request.body.urlToImage,
       'video',
       request.body.viewCount,
+      'images/youtube.png',
     ]
   )
   .then(function() {

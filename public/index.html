@@ -2,13 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
   <title>TotW</title>
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="style/menu.css"> -->
-  <link rel="stylesheet" href="style/style-white.css">
+  <link rel="stylesheet" href="style/menu.css">
+  <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/mobile.css">
 </head>
 <body>
@@ -54,9 +54,10 @@
       <div class="right-nav"><div class="toggle"><i class="fa flip fa-circle fa-2" aria-hidden="true"></i></div></div>
     </div>
     <div id="trending" class="container">
-      <div class="template box box-light" data-category="cat">
+      <div style="position: relative;" class="template box box-light" data-category="cat">
         <a class="img-link" target="_blank" href="">
-          <img src="" alt="">
+          <img class="imgUrl" src="" alt="">
+          <img class="img-icon iconUrl" src="" alt="">
         </a>
         <div class="tileBody">
           <div>
@@ -70,9 +71,7 @@
       </div>
 </div>
     <div id="content"></div>
-<!-- <footer>
-      <p>powered by <a href="http://NewsAPI.org">NewsAPI.org &amp; YouTube API</a></p>
-    </footer> -->
+
   <div class="mobile-footer">
     <div class="mobile-footer-left"><i class="button-mobile fa fa-bars fa-3" aria-hidden="true"></i></div>
     <div><i VALUE="Reload Page" class="fa fa-refresh fa-3 mobile-refresh" aria-hidden="true"></i></div>
