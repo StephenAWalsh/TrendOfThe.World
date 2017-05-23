@@ -9,15 +9,15 @@
 - JavaScript, jQuery
 - PostgreSQL
 - Heroku
--- Heroku PostgreSQL
--- Heroku Scheduler
+  - Heroku PostgreSQL
+  - Heroku Scheduler
 - Node JS using the following NPM packages
--- animate.css https://daneden.github.io/animate.css/
--- body-parser
--- express
--- moment https://momentjs.com/
--- pg
--- superagent https://visionmedia.github.io/superagent/
+  - animate.css https://daneden.github.io/animate.css/
+  - body-parser
+  - express
+  - moment https://momentjs.com/
+  - pg
+  - superagent https://visionmedia.github.io/superagent/
 
 ## Authors
 
