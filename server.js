@@ -4,18 +4,22 @@ const express = require('express');
 const pg = require('pg');
 const bodyParser = require('body-parser');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const app = express();
 
-const conString = process.env.DATABASE_URL || "postgres://tom:myPassword@localhost:5432/trending"
+const conString = process.env.DATABASE_URL
 
 const client = new pg.Client(conString);
 client.connect();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(express.static('./public/'));
 
+app.listen(PORT, function() {
+  console.log(`Server started on port ${PORT}!`);
+});
 //Google News
 
 app.post('/google-news', function(request, response) {
@@ -261,9 +265,4 @@ app.get('/youtube', function(request, response) {
   .catch(function(err) {
     console.error(err)
   })
-});
-
-
-app.listen(PORT, function() {
-  console.log(`Server started on port ${PORT}!`);
 });
