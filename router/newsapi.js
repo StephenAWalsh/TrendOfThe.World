@@ -3,6 +3,9 @@
 const jsonParser = require('body-parser').json();
 const { Router } = require('express');
 
+const pg = require('pg');
+const client = new pg.Client(process.env.DATABASE_URL);
+
 const newsapiRouter = module.exports = new Router();
 
 //Google News
