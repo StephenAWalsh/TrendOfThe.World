@@ -1,0 +1,277 @@
+@import 'reset.css';
+@import 'menu.css';
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+* {
+  color: #636060;
+  font-family: 'Lato', sans-serif;
+}
+
+section, footer {
+  padding: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  color: #a19d9d;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+}
+
+a:hover {
+  color: #000;
+  font-weight: 700;
+}
+
+li {
+}
+
+body {
+  background: #f4f4f4;
+}
+
+header {
+  background-color: #f4f4f4;
+  text-align: center;
+  width: 100%;
+}
+
+header div {
+  padding: 0 10px;
+}
+
+main {
+  margin: 0 auto;
+  background: #f4f4f4;
+  height: 100%;
+}
+
+section {
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #312f3a;
+  height: 100px;
+  margin-top: 40px;
+  font-family: 'Lato', sans-serif;
+}
+
+/*     CLASSES
+////////////////////*/
+
+.template {
+  display: none;
+}
+
+.title-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-logo img {
+  max-width: 100px;
+  -webkit-filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.7));
+  -ms-filter: progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444');
+  filter: progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444');
+}
+
+.center-logo {
+  background-image: url('../images/text100pxblack.png');
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 100px;
+}
+
+.main-nav {
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-class {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+.nav-class a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 25px 20px;
+}
+
+.nav-class a:hover {
+  border-bottom: 2px solid rgb(218,112,57);
+  padding-bottom: 18px;
+}
+
+.left-nav, .right-nav {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.right-nav:hover {
+}
+
+.image-container {
+  height: 150px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.tileBody {
+  padding: 7px 15px 0px 15px;
+  line-height: 20px;
+  height: 95px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tileBody a {
+  text-decoration: none;
+}
+
+.tileBody a:hover {
+}
+
+.tileBody:hover {
+  color: #000;
+}
+
+.box {
+  margin: 20px 11px;
+  width: 300px;
+  height: 260px;
+  background-color: #fff;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-radius: 5px;
+  -webkit-box-shadow: 8px 8px 8px gray;
+  -moz-box-shadow: 8px 8px 8px gray;
+  box-shadow: 8px 8px 8px gray;
+}
+
+.box img {
+  border-radius: 4px 4px 0 0;
+}
+
+.box img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+.time-left {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+.fa-arrow-up {
+  display: none;
+  font-size: 60px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 5px #2a2929;
+  -moz-box-shadow: 5px 5px 5px #2a2929;
+  box-shadow: 5px 5px 5px #2a2929;
+}
+
+.fa-circle, .fa-circle-o {
+  font-size: 1.6em;
+  cursor: pointer;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*     MEDIA QUERIES
+////////////////////////*/
+
+@media screen and (max-width: 640px) {
+  .box {
+    width: 350px;
+    margin: 20px 20px;
+    transition: .8s;
+    height: 290px;
+  }
+  .box a {
+    line-height: 22px;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  .time {
+    font-size: 1em;
+  }
+  .box img {
+    height: 170px;
+    object-fit: cover;
+  }
+  li {
+    padding-right: 0;
+  }
+  .nav-class a {
+    padding: 15px 14px;
+  }
+
+  .fa-arrow-up {
+    display: inline;
+  }
+}
