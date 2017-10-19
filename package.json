@@ -2,14 +2,23 @@
   "name": "trendoftheworld",
   "version": "1.1.0",
   "description": "Pulls trending data from all over the web...",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
+    "watch": "nodemon index.js",
     "updateDB": "node updateDB.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc chai",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0smium/TrendOfThe.World.git"
   },
   "author": "Matt, Pablo, Kenny, Steve",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0smium/TrendOfThe.World/issues"
+  },
   "dependencies": {
     "animate.css": "^3.5.2",
     "body-parser": "^1.17.1",
@@ -17,5 +26,11 @@
     "moment": "^2.18.1",
     "pg": "^6.2.2",
     "superagent": "^3.5.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.9.0",
+    "nyc": "^11.2.1"
   }
 }
