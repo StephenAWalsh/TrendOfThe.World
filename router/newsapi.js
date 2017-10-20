@@ -5,6 +5,7 @@ const { Router } = require('express');
 
 const pg = require('pg');
 const client = new pg.Client(process.env.DATABASE_URL);
+client.connect();
 
 const newsapiRouter = module.exports = new Router();
 
@@ -97,6 +98,7 @@ newsapiRouter.delete('/buzzfeed', function(request, response) {
 });
 
 newsapiRouter.get('/buzzfeed', function(request, response) {
+  console.log('hit GET /buzzfeed');
   client.query('SELECT * FROM buzzfeed')
   .then(function(result) {
     response.send(result.rows);
